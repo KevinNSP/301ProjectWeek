@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/KevinNSP/301ProjectWeek/issues"
   },
-  "homepage": "https://github.com/KevinNSP/301ProjectWeek#readme"
+  "homepage": "https://github.com/KevinNSP/301ProjectWeek#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-request-proxy": "^2.0.0",
+    "marked": "^0.3.6",
+    "page": "^1.7.1",
+    "pg": "^6.1.5"
+  }
 }
