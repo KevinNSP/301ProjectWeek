@@ -2,11 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>
+    <title>Currency Exchange App</title>
+
+    <link rel="stylesheet" href="vendor/style/reset.css">
+    <link rel="stylesheet" href="vendor/icon.css">
     <link rel="stylesheet" href="styles/style.css">
-    </title>
+
+    <script id=live-template type="text/x-handlebar-template">
+      <li>
+      <h1>{{currencyName}}</h1>
+      <h3>{{exchangeRate}}</h3>
+      </li>
+    </script>
     </head>
     <body>
+    <div class="main-nav">
+      <div class="icon-menu"></div>
+        <ul>
+          <li class="tab" data-content="home"<a href="#">Home</a></li>
+          <li class="tab" data-content="app"<a href="#">App</a></li>
+          <li class="tab" data-content="about"<a href="#">About</a></li>
+        </ul>
+    </div>
     <header>
       <h1>THIS IS OUR PAGE</h1>
       <p>CURRENCY EXCHANGE</p>
