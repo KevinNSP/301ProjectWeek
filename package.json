@@ -1,0 +1,20 @@
+{
+  "name": "301-project-week",
+  "version": "1.0.0",
+  "description": "Our 301 project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinNSP/301ProjectWeek.git"
+  },
+  "author": "Kevin, Anna, Isak, Ben",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KevinNSP/301ProjectWeek/issues"
+  },
+  "homepage": "https://github.com/KevinNSP/301ProjectWeek#readme"
+}
