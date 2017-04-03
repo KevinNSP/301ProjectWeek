@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Currency Exchange App</title>
 
     <link rel="stylesheet" href="vendor/style/reset.css">
@@ -18,41 +19,70 @@
     <body>
     <div class="main-nav">
       <div class="icon-menu"></div>
-        <ul>
-          <li class="tab" data-content="home"<a href="#">Home</a></li>
-          <li class="tab" data-content="app"<a href="#">App</a></li>
-          <li class="tab" data-content="about"<a href="#">About</a></li>
-        </ul>
+      <ul>
+        <li class="tab" data-content="home"<a href="/">Home</a></li>
+        <li class="tab" data-content="app"<a href="/app">App</a></li>
+        <li class="tab" data-content="about"<a href="/about">About</a></li>
+      </ul>
     </div>
+
     <header>
       <h1>THIS IS OUR PAGE</h1>
       <p>CURRENCY EXCHANGE</p>
     </header>
-    <main>
-      <section id="moneies" class="tab-content">
-        <div>
-          <ul id="filters">
-            <li>
-              <select id="currencyOne">
-                <option value="">--Select Base Currency--</option>
-              </select>
-            </li>
-            <li>
-              <select id="currencyTwo">
-                <option value="">--Select Other Currency--</option>
-              </select>
-            </li>
-          </ul>
-        </div>
 
+    <main>
+      <section id="home" class="tab-content">
+        <h1>Stuff</h1>
+        <p>We did a thing, this thing does another thing, that will eventually do another thing.</p>
+        <h2>PICTURE</h2>
+      </section>
+
+      <section id="monies" class="tab-content">
+        <div class="live-rates">
+          <!-- BOX o'Things -->
+        </div>
+        <form class="calculator">
+          <fieldset>
+            <legend>Exchange calculator:</legend>
+            <div class="filters">
+              <ul>
+                <li>
+                  <select id="currencyOne">
+                    <option value="">--Select Base Currency--</option>
+                  </select>
+                </li>
+                <li>
+                  <select id="currencyTwo">
+                    <option value="">--Select Other Currency--</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+            <div class="numbers">
+              <ul>
+                <li><label>Starting Value<input type="number" name="input" value="0"></label></li>
+                <li><label>Ending Value<output name="output">0</label></li>
+              </ul>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <section id="about" class ="tab-content">
+        <h1>This is where we put things about us</h1>
+        <p>Hodor. Hodor hodor hodor hodor hodor hodor hodor. Hodor hodor - HODOR hodor, hodor hodor hodor hodor; hodor hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor... Hodor hodor hodor... Hodor hodor hodor; hodor hodor hodor! Hodor hodor - hodor... Hodor hodor hodor. Hodor hodor HODOR! Hodor hodor hodor? Hodor! Hodor hodor, hodor; hodor HODOR hodor, hodor hodor? Hodor hodor; hodor hodor; hodor hodor hodor! Hodor. Hodor hodor hodor hodor hodor hodor hodor! </p>
+        <p>I am Groot</p>
       </section>
     </main>
-    <ul id="results">
 
-    </ul>
     <footer>
+      <p>Original Content, do not steal!</p>
     </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
     <script src="server.js" type="text/javascript"></script>
     <script src="scripts/app.js" type="text/javascript"></script>
     <script src="scripts/appView.js" type="text/javascript"></script>
