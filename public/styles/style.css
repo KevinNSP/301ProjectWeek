@@ -1,10 +1,28 @@
 * {
   font-family: 'Raleway', sans-serif;
 }
+
  .boxy {
    width: 800px;
    background-color: red;
  }
+
+
+marquee {
+  height: 50px;
+}
+
+marquee p {
+  display: inline;
+  margin-left: 30px;
+}
+
+h1 {
+  vertical-align: center;
+  display: inline-block;
+  font-size: 30px;
+}
+
 .icon-menu {
   font-size: 40px;
   display: inline-block;
@@ -36,6 +54,12 @@ li.tab {
 @media screen and (min-width: 900px) {
 body {
 background-color: white;
+  }
+
+  h1 {
+    vertical-align: bottom;
+    display: inline-block;
+    font-size: 60px;
   }
 
   .icon-menu {
