@@ -1,7 +1,10 @@
 * {
   font-family: 'Raleway', sans-serif;
 }
-
+ .boxy {
+   width: 800px;
+   background-color: red;
+ }
 .icon-menu {
   font-size: 40px;
   display: inline-block;
