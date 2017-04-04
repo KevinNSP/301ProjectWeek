@@ -1,11 +1,58 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
 .icon-menu {
-  color: purple;
+  font-size: 40px;
+  display: inline-block;
+  float: right;
+  color: white;
 }
 
 .main-nav {
+  display: block;
   outline: black solid 1px;
+  background-color: #20063B;
+  color: white;
 }
 
-.tab {
+.main-nav img[alt="logo"]{
+  width: 70px;
+  vertical-align: middle;
+}
+
+.nav-buttons {
   display: inline-block;
+}
+
+li.tab {
+  display: none;
+  margin-left: 30px;
+}
+
+@media screen and (min-width: 900px) {
+body {
+background-color: white;
+  }
+
+  .icon-menu {
+    display: none;
+    color: purple;
+  }
+
+  .main-nav {
+      outline: black solid 1px;
+    background-color: #20063B;
+    color: white;
+  }
+
+  .tab {
+    display: inline-block;
+  }
+
+  li.tab {
+    display: inline-block;
+    margin-left: 30px;
+  }
+
 }
