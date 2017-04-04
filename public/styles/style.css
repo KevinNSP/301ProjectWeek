@@ -1,3 +1,11 @@
 .icon-menu {
   color: purple;
 }
+
+.main-nav {
+  outline: black solid 1px;
+}
+
+.tab {
+  display: inline-block;
+}
