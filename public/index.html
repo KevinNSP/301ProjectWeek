@@ -22,9 +22,9 @@
       <img src="vendor/White bling logo.png" alt="logo">
       <h1>The 4th BLING</h1>
       <ul class="nav-buttons">
-        <li class="tab" data-content="home"<a href="/">Home</a></li>
-        <li class="tab" data-content="app"<a href="/app">App</a></li>
-        <li class="tab" data-content="about"<a href="/about">About</a></li>
+        <li class="tab"><a href="/">Home</a></li>
+        <li class="tab"><a href="/app">App</a></li>
+        <li class="tab"><a href="/about">About</a></li>
       </ul>
       <div class="icon-menu"></div>
     </div>
@@ -34,15 +34,14 @@
       <p>currency 3</p>
       <p>currency 4</p>
     </marquee>
-      <p>CURRENCY EXCHANGE CALCULATOR</p>
-
     </header>
     <main>
+      <!--   homeView content here    -->
       <section id="home" class="tab-content">
-        <h1>Stuff</h1>
-        <p>We did a thing, this thing does another thing, that will eventually do another thing.</p>
-        <h2>PICTURE</h2>
+        <h1>About our App:</h1>
+        <p>Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you. It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.</p>
       </section>
+      <!--    appView content here    -->
       <section id="monies" class="tab-content">
         <form class="calculator">
           <fieldset>
@@ -70,11 +69,20 @@
           </fieldset>
         </form>
       </section>
-
+      <!--   aboutView content here     -->
       <section id="about" class ="tab-content">
-        <h1>This is where we put things about us</h1>
+        <h1>This is about us:</h1>
         <p>Hodor. Hodor hodor hodor hodor hodor hodor hodor. Hodor hodor - HODOR hodor, hodor hodor hodor hodor; hodor hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor... Hodor hodor hodor... Hodor hodor hodor; hodor hodor hodor! Hodor hodor - hodor... Hodor hodor hodor. Hodor hodor HODOR! Hodor hodor hodor? Hodor! Hodor hodor, hodor; hodor HODOR hodor, hodor hodor? Hodor hodor; hodor hodor; hodor hodor hodor! Hodor. Hodor hodor hodor hodor hodor hodor hodor! </p>
         <p>I am Groot</p>
+        <h1>Isak Swearingen</h1>
+        <p>This is about Isakkkkkkkkkkk</p>
+        <h1>Kevin Schmidt</h1>
+        <p>This is about Kevinnnnnnnnnn</p>
+        <h1>Ben Ayzenberg</h1>
+        <p>This is about Bennnnnnnnnnnn</p>
+        <h1>Anna Shelby</h1>
+        <p>This is about Annaaaaaaaaaaa</p>
+
       </section>
     </main>
 
@@ -83,12 +91,14 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
+    <script src="scripts/model/app.js"></script>
 
+    <script src="scripts/view/homeView.js"></script>
+    <script src="scripts/view/appView.js"></script>
+    <script src="scripts/view/aboutView.js"></script>
+    <script src="scripts/controller/routes.js"></script>
 
-    <script src="scripts/model/app.js" type="text/javascript"></script>
-    <script src="scripts/view/appView.js" type="text/javascript"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 'use strict';
 
-page('/', showHomeFunction);
-page('/app', showAppFunction);
-page('/about', showAboutFunction);
+page('/', homeView.init);
+page('/app', appView.init);
+page('/about', aboutView.init);
 
 page();
