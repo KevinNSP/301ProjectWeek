@@ -7,6 +7,17 @@ let moneyNames = [];
 let threeCodes = [];
 // Currency.names = [];
 // Rates.names = [];
+let allData = [];
+
+function Data(name, code) {
+  this.name = name;
+  this.code = code;
+};
+
+Data.prototype.addRate = function (rate) {
+  this.rate = rate;
+};
+
 
 function populateNames(){
   for(let prop in Currency.names.currencies){
@@ -25,28 +36,36 @@ function populateRates(){
     // $('#currencyTwo').append(`<option value="${prop}">${menuNames[prop]}</option>`);
     rateyRates.push(menuNames[prop]);
   }
-  let newRates = rateyRates.map(rate => {
-    return {
-      rate: rate
-    }
-  })
-  console.log('these are new rates ', newRates);
+  return rateyRates;
 };
 
 Rates.requestRates = function(callback) {
   $.get('http://apilayer.net/api/live?access_key=0e0b2c550a586eca8af82847a443b3ed')
     .then(data => Rates.names = data, err => console.error(err))
-    .then(data => {
-
-    })
-    .then(callback);
+    .then(callback)
+    .then(() =>{
+      allData.forEach((element, i) => {
+        element.addRate(rateyRates[i]);
+        console.log(element);
+      })
+    });
 };
 
 Currency.requestNames = function(callback) {
   $.get('http://apilayer.net/api/list?access_key=0e0b2c550a586eca8af82847a443b3ed')
     .then(data => Currency.names = data, err => console.error(err))
-    .then(callback);
+    .then(callback)
+    .then(() => {
+      for (var i = 0; i < moneyNames.length; i++) {
+       allData.push(new Data(moneyNames[i], threeCodes[i]));
+     }
+    })
+    .then(() => console.log(allData));
 };
 
-Rates.requestRates(populateRates);
-Currency.requestNames(populateNames);
+Currency.doThings = function() {
+  Currency.requestNames(populateNames);
+  Rates.requestRates(populateRates);
+};
+
+Currency.doThings();
