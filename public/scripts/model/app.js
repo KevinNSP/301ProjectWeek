@@ -73,7 +73,7 @@ $('#currencyOne').change(function(){
   menuOne.unshift($(this).val())
 })
 
-$('#currencyOne').change(function(){
+$('#currencyTwo').change(function(){
   menuTwo.unshift($(this).val())
 })
 
