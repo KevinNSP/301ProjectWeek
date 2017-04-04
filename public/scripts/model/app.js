@@ -5,8 +5,6 @@ const Rates = {};
 let rateyRates = [];
 let moneyNames = [];
 let threeCodes = [];
-// Currency.names = [];
-// Rates.names = [];
 let allData = [];
 
 function Data(name, code) {
@@ -46,7 +44,7 @@ Rates.requestRates = function(callback) {
     .then(() =>{
       allData.forEach((element, i) => {
         element.addRate(rateyRates[i]);
-        console.log(element);
+        // console.log(element);
       })
     });
 };
@@ -60,12 +58,23 @@ Currency.requestNames = function(callback) {
        allData.push(new Data(moneyNames[i], threeCodes[i]));
      }
     })
-    .then(() => console.log(allData));
+    // .then(() => console.log(allData));
 };
 
 Currency.doThings = function() {
   Currency.requestNames(populateNames);
   Rates.requestRates(populateRates);
 };
+
+let menuOne = [];
+let menuTwo = [];
+
+$('#currencyOne').change(function(){
+  menuOne.unshift($(this).val())
+})
+
+$('#currencyTwo').change(function(){
+  menuTwo.unshift($(this).val())
+})
 
 Currency.doThings();
