@@ -74,6 +74,7 @@ Rates.requestRates = function(callback) {
         // console.log(element);
       });
       populateFilters();
+      tickerData();
     });
 };
 
@@ -89,6 +90,13 @@ Currency.requestNames = function(callback) {
     });
     // .then(() => console.log(allData));
 };
+
+function tickerData() {
+  allData.forEach(function(e) {
+    console.log(e, 'line 96');
+    $("marquee").append("<p>" + e.code + ": " + e.rate + "</p>");
+  })
+}
 
 Currency.doThings = function() {
   Currency.requestNames(populateNames);
@@ -107,4 +115,4 @@ $('#currencyTwo').change(function(){
 });
 
 Currency.doThings();
-populateFilters();
+// populateFilters();
