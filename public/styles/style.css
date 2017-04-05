@@ -69,10 +69,16 @@ a {
 
 .nav-buttons {
   display: inline-block;
+
 }
 
+.hidden {
+display: none;
+}
+
+
 li.tab {
-  display: none;
+  /*display: none;*/
   margin-left: 30px;
 }
 
@@ -101,6 +107,10 @@ li.tab {
   .icon-menu {
     display: none;
     color: purple;
+  }
+
+  .hidden{
+    display: inline-block;
   }
 
   .main-nav {
