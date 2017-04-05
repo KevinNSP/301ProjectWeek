@@ -105,13 +105,18 @@ Currency.doThings = function() {
 
 let menuOne = [];
 let menuTwo = [];
+let currencyOne = [];
+let currencyTwo = [];
 
 $('#currencyOne').change(function(){
   menuOne.unshift($(this).val());
+  currencyOne.unshift($(this).find('option:selected').text());
+  console.log($(this).find('option:selected').text());
 });
 
 $('#currencyTwo').change(function(){
   menuTwo.unshift($(this).val());
+  currencyTwo.unshift($(this).find('option:selected').text());
 });
 
 Currency.doThings();
