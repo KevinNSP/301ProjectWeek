@@ -120,4 +120,3 @@ $('#currencyTwo').change(function(){
 });
 
 Currency.doThings();
-// populateFilters();
