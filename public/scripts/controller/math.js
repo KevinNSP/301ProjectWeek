@@ -12,7 +12,7 @@
     console.log($('#starting-number').val());
     let result = $('#starting-number').val() * rate;
 
-    $('#ending-number').val(result);
+    $('#ending-number').val(result.toFixed(2));
   };
 
   module.calculator = calculator;
