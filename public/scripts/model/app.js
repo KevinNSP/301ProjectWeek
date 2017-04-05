@@ -134,7 +134,7 @@ Currency.check = function() {
     console.log('getting new data');
     Currency.requestNames(populateNames);
   }
-}
+};
 
 let menuOne = [];
 let menuTwo = [];
@@ -151,6 +151,5 @@ $('#currencyTwo').change(function(){
   menuTwo.unshift($(this).val());
   currencyTwo.unshift($(this).find('option:selected').text());
 });
-
 
 Currency.check();
