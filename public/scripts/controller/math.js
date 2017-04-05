@@ -1,19 +1,24 @@
 'use strict';
 
-let calculate = function() {
-  let end = $('form #end').val();
-  let start = $('form #start').val();
-  let rate;
+(function(module){
+  const calculator = {};
 
-  if (start === 'USD') {
-    rate = currency.rates['USD' + end];
-  } else if (end === 'USD') {
-    rate = 1/(currency.rates['USD' + start]);
-  } else {
-    rate = (currency.rates['USD' + end])/(currency.rates['USD' + start]);
-  }
+  calculator.calculate = function() {
+    let end = $('#currencyTwo').val();
+    console.log(end);
+    let start = $('#currencyOne').val();
+    console.log(start);
 
-  let result = $('form #input').val * rate;
+    let rate = (end)/(start);
 
-  $('form #result').val(result);
-};
+    let result = $('#starting-number').val * rate;
+
+    $('#ending-number').val(result);
+  };
+
+  $('#input').on('change', function() {
+    calculator.calculate();
+  });
+
+  module.calculator = calculator;
+}(window))

@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-    <script id=live-template type="text/x-handlebar-template">
-      <li>
-      <h1>{{currencyName}}</h1>: <h3>{{exchangeRate}}</h3>
-      </li>
+    <script id=marquee-template type="text/x-handlebar-template">
+      <p>{{currencyName}}: {{exchangeRate}}</h3>
     </script>
     </head>
     <body>
@@ -62,8 +60,8 @@
             </div>
             <div class="numbers">
               <ul>
-                <li><label>Starting Value<input type="number" name="input" value="0"></label></li>
-                <li><label>Ending Value<output name="output">0</label></li>
+                <li><label>Starting Value<input type="number" name="input" value="0" id="starting-number"></label></li>
+                <li><label>Ending Value<output name="output" id="ending-number">0</label></li>
               </ul>
             </div>
           </fieldset>
@@ -95,6 +93,7 @@
     <script src="scripts/view/homeView.js"></script>
     <script src="scripts/view/appView.js"></script>
     <script src="scripts/view/aboutView.js"></script>
+    <script src="scripts/controller/math.js"></script>
     <script src="scripts/controller/routes.js"></script>
 
   </body>
