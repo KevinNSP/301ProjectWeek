@@ -1,3 +1,27 @@
+legend{
+  text-align: center;
+}
+
+#allOutputs {
+  text-align: center;
+  display: block;
+}
+
+#allOutputs p {
+  display: inline;
+}
+
+#button {
+  margin-left: auto;
+  margin-right:auto;
+  display: block;
+}
+
 .selection{
-  display: inline-block;
+  display: inline;
+}
+
+#numberDiv {
+  display: inline;
+  min-width: 302px;
 }

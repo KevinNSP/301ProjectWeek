@@ -19,14 +19,11 @@
   module.calculator = calculator;
 }(window));
 
-function clickOutput(){
-  $('#starting-number').on('change', function() {
-    calculator.calculate();
-    let firstVal = $('#starting-number').val();
-    $('#firstCurrency').html(currencyOne[0], ' = ');
-    $('#first').html(firstVal);
-    $('#secondCurrency').html(currencyTwo[0]);
-  });
-};
-
-clickOutput();
+$('#button').click(function() {
+  calculator.calculate();
+  let firstVal = $('#starting-number').val();
+  $('#firstCurrency').html(currencyOne[0], ' = ');
+  $('#first').html(firstVal);
+  $('#secondCurrency').html(currencyTwo[0]);
+  $('#equals').html(' = ');
+});
