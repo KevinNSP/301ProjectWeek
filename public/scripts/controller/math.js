@@ -11,7 +11,7 @@
     console.log($('#starting-number').val());
     let result = $('#starting-number').val() * rate;
 
-    let finalOutput = $('#ending-number').append(result.toFixed(2));
+    let finalOutput = $('#ending-number').html(result.toFixed(2));
     return finalOutput;
 
   };
@@ -19,12 +19,14 @@
   module.calculator = calculator;
 }(window));
 
-$('#starting-number').on('change', function() {
-  $('#allOutputs').hide();
-  calculator.calculate();
-  $('#allOutputs').show();
-  let firstVal = $('#starting-number').val();
-  $('#firstCurrency').append(currencyOne[0], ' = ');
-  $('#first').append(firstVal);
-  $('#secondCurrency').append(currencyTwo[0]);
-});
+function clickOutput(){
+  $('#starting-number').on('change', function() {
+    calculator.calculate();
+    let firstVal = $('#starting-number').val();
+    $('#firstCurrency').html(currencyOne[0], ' = ');
+    $('#first').html(firstVal);
+    $('#secondCurrency').html(currencyTwo[0]);
+  });
+};
+
+clickOutput();
