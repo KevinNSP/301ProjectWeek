@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const requestProxy = require('express-request-proxy');
 const request = require('superagent');
 const app = express();
-const currencyURL = 'http://apilayer.net/api/live?access_key=0e0b2c550a586eca8af82847a443b3ed';
+const currencyURL = `http://apilayer.net/api/live?access_key=${process.env.APP_token}`;
 const conString = 'postgres://postgres:1234@localhost:5432/currency';
 
 const PORT = process.env.PORT || 4000;
