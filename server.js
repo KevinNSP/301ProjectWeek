@@ -1,18 +1,3 @@
-// 'use strict';
-//
-// const pg = require('pg');
-// const fs = require('fs');
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const requestProxy = require('express-request-proxy');
-//
-// const PORT = process.env.PORT || 3000;
-// const app = express();
-//
-// app.use(express.static('./public'));
-//
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
-
 'use strict';
 
 const pg = require('pg');
@@ -52,13 +37,14 @@ function loadCurrency(){
   request.get(currencyURL)
   .then(res => {
     currencyData = res.body;
+    console.log(currencyData);
     currencyData.map(ele => {
             client.query(`
               INSERT INTO
-              currency(name, "year", mass, recclass, reclat, reclong)
-              VALUES ($1, $2, $3, $4, $5, $6);
+              currency(success, terms, privacy, currencies)
+              VALUES ($1, $2, $3, $4, $5);
               `,
-              [ele.name, ele.year, ele.mass, ele.recclass, ele.reclat, ele.reclong]
+              [ele.success, ele.terms, ele.privacy, ele.currencies]
             ).catch(console.error);
           })
         }
@@ -71,12 +57,10 @@ function loadDB(){
     CREATE TABLE IF NOT EXISTS
     currency (
         id SERIAL PRIMARY KEY,
-        name TEXT,
-        "year" DATE,
-        mass DECIMAL,
-        recclass TEXT,
-        reclat DECIMAL,
-        reclong DECIMAL
+        success TEXT,
+        terms TEXT,
+        privacy TEXT,
+        currencies TEXT
     )`
   ).then(loadCurrency).catch(console.error);
 }
