@@ -39,25 +39,28 @@
           <fieldset>
             <legend>Exchange calculator:</legend>
             <div class="filters">
-              <ul>
-                <li>
-                  <select class="selection" id="currencyOne">
-                    <option value="">--Select Base Currency--</option>
+
+                  <select id="currencyOne">
+                    <option class="selection" value="">--Select Base Currency--</option>
                   </select>
-                </li>
-                <li>
-                  <select class="selection" id="currencyTwo">
-                    <option value="">--Select Other Currency--</option>
+
+                  <select  id="currencyTwo">
+                    <option class="selection" value="">--Select Other Currency--</option>
                   </select>
-                </li>
-              </ul>
+                  <div id="numberDiv">
+
+                  <label class="numbers">Starting Value<input type="number" name="input" value="0" id="starting-number"></label>
+                  </div>
+
             </div>
-            <div class="numbers">
-              <ul>
-                <li><label>Starting Value<input type="number" name="input" value="0" id="starting-number"></label></li>
-                <li id="allOutputs"><label><p id="first"><p id="firstCurrency"></p><output name="output" id="ending-number">0</label><p id="secondCurrency"></p></li>
-              </ul>
-            </div>
+                <button id="button" type="button">CALCULATE</button>
+                <div id="allOutputs">
+                  <p id="first"></p>
+                  <p id="firstCurrency"></p>
+                  <p id="equals"></p>
+                  <p id="ending-number"></p>
+                  <p id="secondCurrency"></p>
+                </div>
           </fieldset>
         </form>
       </section>
