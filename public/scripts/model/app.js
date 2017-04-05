@@ -120,7 +120,7 @@ Currency.check = function() {
   let hourCurrent = new Date().getHours();
   console.log('begin check');
   if (localStorage.allData) {
-    if (localStorage.hour !== hourCurrent) {
+    if (parseInt(localStorage.hour) === hourCurrent) {
       console.log('using localStorage Data');
       allData = JSON.parse(localStorage.allData);
       allData = Currency.convert(allData);
@@ -154,5 +154,3 @@ $('#currencyTwo').change(function(){
 
 
 Currency.check();
-
-
