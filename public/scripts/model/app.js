@@ -152,5 +152,7 @@ $('#currencyTwo').change(function(){
   currencyTwo.unshift($(this).find('option:selected').text());
 });
 
+
 Currency.check();
-// populateFilters();
+
+
