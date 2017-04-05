@@ -4,21 +4,20 @@
   const calculator = {};
 
   calculator.calculate = function() {
-    let end = $('#currencyTwo').val();
-    console.log(end);
-    let start = $('#currencyOne').val();
-    console.log(start);
+    let end = menuTwo[0];
+    let start = menuOne[0];
 
-    let rate = (end)/(start);
+    let rate = end / start;
 
-    let result = $('#starting-number').val * rate;
+    console.log($('#starting-number').val());
+    let result = $('#starting-number').val() * rate;
 
     $('#ending-number').val(result);
   };
 
-  $('#input').on('change', function() {
-    calculator.calculate();
-  });
-
   module.calculator = calculator;
-}(window))
+}(window));
+
+$('#starting-number').on('change', function() {
+  calculator.calculate();
+});
