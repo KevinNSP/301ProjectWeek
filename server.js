@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 const requestProxy = require('express-request-proxy');
 const request = require('superagent');
 const app = express();
-const currencyURL = 'http://apilayer.net/api/live?access_key=0e0b2c550a586eca8af82847a443b3ed'
-const conString = 'postgres://kevin:test@localhost:5432/currency'
+const currencyURL = 'http://apilayer.net/api/live?access_key=0e0b2c550a586eca8af82847a443b3ed';
+const conString = 'postgres://postgres:1234@localhost:5432/currency';
 
 const PORT = process.env.PORT || 4000;
 
@@ -34,12 +34,12 @@ function loadCurrency(){
   client.query('SELECT COUNT(*) FROM currency')
   .then(result => {
     if(!parseInt(result.rows[0].count)){
-  request.get(currencyURL)
+      request.get(currencyURL)
   .then(res => {
     currencyData = res.body;
     console.log(currencyData);
     currencyData.map(ele => {
-            client.query(`
+      client.query(`
               INSERT INTO
               currency(success, terms, privacy, currencies)
               VALUES ($1, $2, $3, $4, $5);

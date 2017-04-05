@@ -16,17 +16,42 @@ Data.prototype.addRate = function (rate) {
   this.rate = rate;
 };
 
+function currencyVal(filterId){
+  let currencyName = $(filterId).change(function() {
+    return $(this).val();
+  });
+  return allData.filter(function(obj){
+    return obj.code === currencyName;
+  });
+}
 
+// function secondCurrency(){
+//   let curencyTwoName = $('#currencyTwo').change(function() {
+//     return $(this).val();
+//   });
+//   return allData.filter(function(obj){
+//     return obj.name === currencyTwoName;
+//   });
+// }
 
+function populateFilters(){
+  for (var i = 0; i < allData.length; i++) {
+    console.log('a filter is being populated');
+    $('#currencyOne').append(`<option value = "${allData[i].rate}">${allData[i].name}</option>`);
+    $('#currencyTwo').append(`<option value = "${allData[i].rate}">${allData[i].name}</option>`);
+  }
+}
 
 function populateNames(){
   for(let prop in Currency.names.currencies){
     let menuNames = Currency.names.currencies;
-    $('#currencyOne').append(`<option value="${prop}">${menuNames[prop]}</option>`);
-    $('#currencyTwo').append(`<option value="${prop}">${menuNames[prop]}</option>`);
+    // $('#currencyOne').append(`<option value="${prop}">${menuNames[prop]}</option>`);
+    // $('#currencyTwo').append(`<option value="${prop}">${menuNames[prop]}</option>`);
     threeCodes.push(prop);
     moneyNames.push(menuNames[prop]);
   }
+  // console.log('populate filters');
+  // populateFilters();
 };
 
 function populateRates(){
@@ -47,7 +72,8 @@ Rates.requestRates = function(callback) {
       allData.forEach((element, i) => {
         element.addRate(rateyRates[i]);
         // console.log(element);
-      })
+      });
+      populateFilters();
     });
 };
 
@@ -57,26 +83,28 @@ Currency.requestNames = function(callback) {
     .then(callback)
     .then(() => {
       for (var i = 0; i < moneyNames.length; i++) {
-       allData.push(new Data(moneyNames[i], threeCodes[i]));
-     }
-    })
+        allData.push(new Data(moneyNames[i], threeCodes[i]));
+      }
+      Rates.requestRates(populateRates);
+    });
     // .then(() => console.log(allData));
 };
 
 Currency.doThings = function() {
   Currency.requestNames(populateNames);
-  Rates.requestRates(populateRates);
+  // Rates.requestRates(populateRates);
 };
 
 let menuOne = [];
 let menuTwo = [];
 
 $('#currencyOne').change(function(){
-  menuOne.unshift($(this).val())
-})
+  menuOne.unshift($(this).val());
+});
 
 $('#currencyTwo').change(function(){
-  menuTwo.unshift($(this).val())
-})
+  menuTwo.unshift($(this).val());
+});
 
 Currency.doThings();
+populateFilters();
