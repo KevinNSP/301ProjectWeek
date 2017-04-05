@@ -16,6 +16,21 @@ Data.prototype.addRate = function (rate) {
   this.rate = rate;
 };
 
+Currency.convert = function(data) {
+  console.log('converting data');
+  data = data.map(function(object) {
+    console.log(object);
+    let dataPoint = new Data(object.name, object.code)
+    dataPoint.addRate(object.rate);
+    console.log(dataPoint);
+    return dataPoint;
+  });
+  console.log(data);
+  return data;
+}
+
+
+
 function currencyVal(filterId){
   let currencyName = $(filterId).change(function() {
     return $(this).val();
@@ -74,6 +89,9 @@ Rates.requestRates = function(callback) {
         // console.log(element);
       });
       populateFilters();
+      localStorage.allData = JSON.stringify(allData);
+      let hourCurrent = new Date().getHours();
+      localStorage.hour = hourCurrent;
       tickerData();
     });
 };
@@ -98,10 +116,25 @@ function tickerData() {
   })
 }
 
-Currency.doThings = function() {
-  Currency.requestNames(populateNames);
-  // Rates.requestRates(populateRates);
-};
+Currency.check = function() {
+  let hourCurrent = new Date().getHours();
+  console.log('begin check');
+  if (localStorage.allData) {
+    if (localStorage.hour !== hourCurrent) {
+      console.log('using localStorage Data');
+      allData = JSON.parse(localStorage.allData);
+      allData = Currency.convert(allData);
+      populateFilters();
+      tickerData();
+    } else {
+      console.log('getting new data');
+      Currency.requestNames(populateNames);
+    }
+  } else {
+    console.log('getting new data');
+    Currency.requestNames(populateNames);
+  }
+}
 
 let menuOne = [];
 let menuTwo = [];
@@ -119,4 +152,7 @@ $('#currencyTwo').change(function(){
   currencyTwo.unshift($(this).find('option:selected').text());
 });
 
-Currency.doThings();
+
+Currency.check();
+
+
