@@ -4,8 +4,11 @@
   "description": "Our 301 project",
   "main": "server.js",
   "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node server.js"
+},
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,7 @@
     "marked": "^0.3.6",
     "nodemon": "^1.11.0",
     "page": "^1.7.1",
-    "pg": "^6.1.5"
+    "pg": "^6.1.5",
+    "superagent": "^3.5.2"
   }
 }

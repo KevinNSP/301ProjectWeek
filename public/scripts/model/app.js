@@ -17,6 +17,8 @@ Data.prototype.addRate = function (rate) {
 };
 
 
+
+
 function populateNames(){
   for(let prop in Currency.names.currencies){
     let menuNames = Currency.names.currencies;
