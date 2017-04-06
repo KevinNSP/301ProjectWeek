@@ -20,6 +20,8 @@
 }(window));
 
 function returnValues(){
+  $('#allOutputs').find('*').show();
+  $('#iAmError').html('');
   calculator.calculate();
   let firstVal = $('#starting-number').val();
   $('#firstCurrency').html(currencyOne[0], ' = ');
@@ -28,14 +30,21 @@ function returnValues(){
   $('#equals').html(' = ');
 };
 
-$('#button').click(function() {
-  if($('#starting-number').val() <= 0 || $('#firstCurrency').text() === '--Select Base Currency--' || $('#secondCurrency').text() === '--Select Other Currency--'){
-    $('#iAmError').html('Please Select Two Currencies and a Value.');
-    $('#firstCurrency').html('');
-    $('#first').html('');
-    $('#secondCurrency').html('');
-    $('#equals').html('');
+function errorMessage(){
+  $('#iAmError').html('Please Select Two Currencies and a Value.');
+  $('#allOutputs').find('*').hide();
+}
+
+$('#button').on('click', function() {
+  if($('#starting-number').val() <= 0){
+    errorMessage();
+  } else if (currencyOne[0] === '--Select Base Currency--'){
+    errorMessage();
+  } else if (currencyTwo[0] === '--Select Other Currency--'){
+    errorMessage();
+  // }else if(finalOutput === finalOutput.isNaN()){
+  //   errorMessage();
   }else{
     returnValues();
-  };
+  }
 });
