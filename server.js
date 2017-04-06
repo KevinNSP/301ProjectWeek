@@ -14,7 +14,6 @@ app.use(express.static('./public'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
 
-app.get('/', (request, response) => response.sendFile('index.html', {root: '.'}));
 
 app.get('/apilayer/list', function(req, res) {
   request(`http://apilayer.net/api/list?access_key=${process.env.APP_TOKEN}`, function (error, response, body) {
@@ -31,3 +30,5 @@ app.get('/apilayer/live', function(req, res) {
     }
   })
 });
+
+app.get('/*', (request, response) => response.sendFile('index.html', {root: './public'}));
