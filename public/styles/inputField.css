@@ -1,5 +1,7 @@
 legend{
   text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 1%;
 }
 
 fieldset {
@@ -28,6 +30,7 @@ fieldset {
 
 .selection{
   display: inline;
+  text-align: center;
 }
 
 #numberDiv {
