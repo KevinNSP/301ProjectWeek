@@ -18,7 +18,7 @@ app.get('/', (request, response) => response.sendFile('index.html', {root: '.'})
 function proxyApi(request, response) {
   console.log('Routing API request for ', request.params[0]);
   (requestProxy({
-    url: `http://apilayer.net/api/${request.params[0]}`
+    url: `http://apilayer.net/api/${request.params[0]}?access_key=${process.env.APP_TOKEN}`
   }))(request, response);
 }
 app.get('/apilayer/*', proxyApi);

@@ -80,7 +80,7 @@ function populateRates(){
 };
 
 Rates.requestRates = function(callback) {
-  $.get(`/apilayer/live?access_key=${process.env.APP_TOKEN}`)
+  $.get(`/apilayer/live`)
     .then(data => Rates.names = data, err => console.error(err))
     .then(callback)
     .then(() =>{
@@ -97,7 +97,7 @@ Rates.requestRates = function(callback) {
 };
 
 Currency.requestNames = function(callback) {
-  $.get(`/apilayer/list?access_key=${process.env.APP_TOKEN}`)
+  $.get(`/apilayer/list`)
     .then(data => Currency.names = data, err => console.error(err))
     .then(callback)
     .then(() => {
