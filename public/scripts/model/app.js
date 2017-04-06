@@ -20,16 +20,14 @@ Currency.convert = function(data) {
   console.log('converting data');
   data = data.map(function(object) {
     console.log(object);
-    let dataPoint = new Data(object.name, object.code)
+    let dataPoint = new Data(object.name, object.code);
     dataPoint.addRate(object.rate);
     console.log(dataPoint);
     return dataPoint;
   });
   console.log(data);
   return data;
-}
-
-
+};
 
 function currencyVal(filterId){
   let currencyName = $(filterId).change(function() {
@@ -39,15 +37,6 @@ function currencyVal(filterId){
     return obj.code === currencyName;
   });
 }
-
-// function secondCurrency(){
-//   let curencyTwoName = $('#currencyTwo').change(function() {
-//     return $(this).val();
-//   });
-//   return allData.filter(function(obj){
-//     return obj.name === currencyTwoName;
-//   });
-// }
 
 function populateFilters(){
   for (var i = 0; i < allData.length; i++) {
@@ -65,8 +54,6 @@ function populateNames(){
     threeCodes.push(prop);
     moneyNames.push(menuNames[prop]);
   }
-  // console.log('populate filters');
-  // populateFilters();
 };
 
 function populateRates(){
@@ -112,8 +99,8 @@ Currency.requestNames = function(callback) {
 function tickerData() {
   allData.forEach(function(e) {
     console.log(e, 'line 96');
-    $("marquee").append("<p>" + e.code + ": " + e.rate + "</p>");
-  })
+    $('marquee').append('<p>' + e.code + ': ' + e.rate + '</p>');
+  });
 }
 
 Currency.check = function() {
