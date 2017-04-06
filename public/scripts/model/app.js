@@ -81,7 +81,7 @@ function populateRates(){
 
 Rates.requestRates = function(callback) {
   $.get(`/apilayer/live`)
-    .then(data => Rates.names = data, err => console.error(err))
+    .then(data => Rates.names = JSON.parse(data), err => console.error(err))
     .then(callback)
     .then(() =>{
       allData.forEach((element, i) => {
@@ -98,7 +98,7 @@ Rates.requestRates = function(callback) {
 
 Currency.requestNames = function(callback) {
   $.get(`/apilayer/list`)
-    .then(data => Currency.names = data, err => console.error(err))
+    .then(data => Currency.names = JSON.parse(data), err => console.error(err))
     .then(callback)
     .then(() => {
       for (var i = 0; i < moneyNames.length; i++) {
