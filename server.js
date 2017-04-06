@@ -5,18 +5,12 @@ const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const requestProxy = require('express-request-proxy');
-const request = require('superagent');
+const request = require('request');
 const app = express();
-const currencyURL = 'http://apilayer.net/api/live?access_key=0e0b2c550a586eca8af82847a443b3ed';
-const conString = 'postgres://postgres:1234@localhost:5432/currency';
 
 const PORT = process.env.PORT || 4000;
 
-const client = new pg.Client(conString);
-client.connect();
-client.on('error', function(error) {
-  console.error(error);
-});
+http://apilayer.net/api/list?access_key=0e0b2c550a586eca8af82847a443b3ed
 
 app.use(express.static('./public'));
 
@@ -24,51 +18,34 @@ app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
 
 app.get('/', (request, response) => response.sendFile('index.html', {root: '.'}));
 
-// DATABASE
+// function proxyApi(request, response) {
+//   console.log('Routing API request for ', request.params[0]);
+//   (requestProxy({
+//     url: `http://apilayer.net/api/${request.params[0]}?access_key=${process.env.APP_TOKEN}`
+//   }))(request, response);
+// }
+// function getData() {
+//   request('http://apilayer.net/api/list?access_key=0e0b2c550a586eca8af82847a443b3ed', function (error, response, body) {
+//     if (!error && response.statusCode == 200) {
+//       console.log(body) // Print the body of response.
+//     }
+//   })
+// }
 
-let currencyData = [];
+app.get('/apilayer/list', function(req, res) {
+  request(`http://apilayer.net/api/list?access_key=${process.env.APP_TOKEN}`, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body) // Print the body of response.
+      res.json(body);
+    }
+  })
+});
 
-loadDB();
-
-function loadCurrency(){
-  client.query('SELECT COUNT(*) FROM currency')
-  .then(result => {
-    if(!parseInt(result.rows[0].count)){
-      request.get(currencyURL)
-  .then(res => {
-    currencyData = res.body;
-    console.log(currencyData);
-    currencyData.map(ele => {
-      client.query(`
-              INSERT INTO
-              currency(success, terms, privacy, currencies)
-              VALUES ($1, $2, $3, $4, $5);
-              `,
-              [ele.success, ele.terms, ele.privacy, ele.currencies]
-            ).catch(console.error);
-          })
-        }
-      )}
-  }).catch(err => console.error(err));
-};
-
-function loadDB(){
-  client.query(`
-    CREATE TABLE IF NOT EXISTS
-    currency (
-        id SERIAL PRIMARY KEY,
-        success TEXT,
-        terms TEXT,
-        privacy TEXT,
-        currencies TEXT
-    )`
-  ).then(loadCurrency).catch(console.error);
-}
-
-app.get('/currency', (request, response) => {
-  client.query(`
-    SELECT * FROM currency;
-    `)
-    .then(result => response.send(result.rows))
-    .catch(console.error);
+app.get('/apilayer/live', function(req, res) {
+  request(`http://apilayer.net/api/live?access_key=${process.env.APP_TOKEN}`, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body); // Print the body of response.
+      res.json(body);
+    }
+  })
 });

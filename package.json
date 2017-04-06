@@ -4,10 +4,6 @@
   "description": "Our 301 project",
   "main": "server.js",
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "node server.js"
-},
-  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,10 +21,12 @@
     "express": "^4.15.2",
     "express-request-proxy": "^2.0.0",
     "handlebars": "^4.0.6",
+    "http": "0.0.0",
     "marked": "^0.3.6",
     "nodemon": "^1.11.0",
     "page": "^1.7.1",
     "pg": "^6.1.5",
+    "request": "^2.81.0",
     "superagent": "^3.5.2"
   }
 }

@@ -67,8 +67,8 @@ function populateRates(){
 };
 
 Rates.requestRates = function(callback) {
-  $.get('http://apilayer.net/api/live?access_key=0e0b2c550a586eca8af82847a443b3ed')
-    .then(data => Rates.names = data, err => console.error(err))
+  $.get(`/apilayer/live`)
+    .then(data => Rates.names = JSON.parse(data), err => console.error(err))
     .then(callback)
     .then(() =>{
       allData.forEach((element, i) => {
@@ -84,8 +84,8 @@ Rates.requestRates = function(callback) {
 };
 
 Currency.requestNames = function(callback) {
-  $.get('http://apilayer.net/api/list?access_key=0e0b2c550a586eca8af82847a443b3ed')
-    .then(data => Currency.names = data, err => console.error(err))
+  $.get(`/apilayer/list`)
+    .then(data => Currency.names = JSON.parse(data), err => console.error(err))
     .then(callback)
     .then(() => {
       for (var i = 0; i < moneyNames.length; i++) {
