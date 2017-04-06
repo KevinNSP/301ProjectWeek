@@ -131,7 +131,6 @@ let currencyTwo = [];
 $('#currencyOne').change(function(){
   menuOne.unshift($(this).val());
   currencyOne.unshift($(this).find('option:selected').text());
-  console.log($(this).find('option:selected').text());
 });
 
 $('#currencyTwo').change(function(){
