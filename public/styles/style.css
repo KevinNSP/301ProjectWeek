@@ -20,7 +20,7 @@ marquee {
   padding-top: 6px;
   padding-bottom: 6px;
   background-color: black;
-  color: green;
+  color: #15d222;
 }
 
 marquee p {
@@ -66,7 +66,7 @@ li a {
 .main-nav {
   display: block;
   height: 75px;
-  background-color: #20063B;
+  background-color: #9e0d97;
   color: white;
 }
 
@@ -98,7 +98,7 @@ footer {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #20063B;
+  background-color: #9e0d97;
   color: white;
   text-align: center;
 }
@@ -125,7 +125,7 @@ footer {
 
   .main-nav {
     outline: black solid 1px;
-    background-color: #20063B;
+    background-color: #9e0d97;
     color: white;
   }
 
