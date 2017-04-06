@@ -17,30 +17,16 @@ Data.prototype.addRate = function (rate) {
 };
 
 Currency.convert = function(data) {
-  console.log('converting data');
   data = data.map(function(object) {
-    console.log(object);
     let dataPoint = new Data(object.name, object.code);
     dataPoint.addRate(object.rate);
-    console.log(dataPoint);
     return dataPoint;
   });
-  console.log(data);
   return data;
 };
 
-function currencyVal(filterId){
-  let currencyName = $(filterId).change(function() {
-    return $(this).val();
-  });
-  return allData.filter(function(obj){
-    return obj.code === currencyName;
-  });
-}
-
 function populateFilters(){
   for (var i = 0; i < allData.length; i++) {
-    console.log('a filter is being populated');
     $('#currencyOne').append(`<option value = "${allData[i].rate}">${allData[i].name}</option>`);
     $('#currencyTwo').append(`<option value = "${allData[i].rate}">${allData[i].name}</option>`);
   }
@@ -49,8 +35,6 @@ function populateFilters(){
 function populateNames(){
   for(let prop in Currency.names.currencies){
     let menuNames = Currency.names.currencies;
-    // $('#currencyOne').append(`<option value="${prop}">${menuNames[prop]}</option>`);
-    // $('#currencyTwo').append(`<option value="${prop}">${menuNames[prop]}</option>`);
     threeCodes.push(prop);
     moneyNames.push(menuNames[prop]);
   }
@@ -59,8 +43,6 @@ function populateNames(){
 function populateRates(){
   for(let prop in Rates.names.quotes){
     let menuNames = Rates.names.quotes;
-    // $('#currencyOne').append(`<option value="${prop}">${menuNames[prop]}</option>`);
-    // $('#currencyTwo').append(`<option value="${prop}">${menuNames[prop]}</option>`);
     rateyRates.push(menuNames[prop]);
   }
   return rateyRates;
@@ -73,7 +55,6 @@ Rates.requestRates = function(callback) {
     .then(() =>{
       allData.forEach((element, i) => {
         element.addRate(rateyRates[i]);
-        // console.log(element);
       });
       populateFilters();
       localStorage.allData = JSON.stringify(allData);
@@ -93,32 +74,26 @@ Currency.requestNames = function(callback) {
       }
       Rates.requestRates(populateRates);
     });
-    // .then(() => console.log(allData));
 };
 
 function tickerData() {
   allData.forEach(function(e) {
-    console.log(e, 'line 96');
     $('marquee').append('<p>' + e.code + ': ' + e.rate + '</p>');
   });
 }
 
 Currency.check = function() {
   let hourCurrent = new Date().getHours();
-  console.log('begin check');
   if (localStorage.allData) {
     if (parseInt(localStorage.hour) === hourCurrent) {
-      console.log('using localStorage Data');
       allData = JSON.parse(localStorage.allData);
       allData = Currency.convert(allData);
       populateFilters();
       tickerData();
     } else {
-      console.log('getting new data');
       Currency.requestNames(populateNames);
     }
   } else {
-    console.log('getting new data');
     Currency.requestNames(populateNames);
   }
 };
