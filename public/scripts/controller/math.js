@@ -26,7 +26,7 @@ function returnValues(){
   $('#firstCurrency').html(currencyOne[0], ' = ');
   $('#first').html(firstVal);
   $('#secondCurrency').html(currencyTwo[0]);
-  $('#equals').html(' = ');
+  $('#equals').html('     =     ');
 };
 
 function errorMessage(){
