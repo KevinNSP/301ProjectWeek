@@ -92,6 +92,15 @@ li.tab {
 
 }
 
+img {
+  width: 15%;
+  border-radius: 100%;
+}
+
+#about p {
+
+}
+
 footer {
   position: fixed;
   right: 0;
