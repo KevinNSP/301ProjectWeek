@@ -8,9 +8,20 @@ fieldset {
   text-align: center;
 }
 
+.filters select label {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
 #allOutputs {
+  color: #15d222;
   text-align: center;
-  display: block;
+  display: inline-block;
+  background-color: black;
+  width: 50%;
+  height: 50%;
+  margin-top: 2%;
+  padding: 2%;
 }
 
 #allOutputs p {
@@ -36,4 +47,14 @@ fieldset {
 #numberDiv {
   display: inline-block;
   min-width: 302px;
+}
+
+#iAmError {
+  margin-top: 2%;
+  color: red;
+  font-weight: bold;
+}
+
+#button {
+  margin-top: 2%;
 }
