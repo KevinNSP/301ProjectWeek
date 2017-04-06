@@ -1,10 +1,18 @@
+@font-face {
+  font-family: tickerfont;
+  src: url('/vendor/fonts/SubwayTickerGrid.ttf');
+}
+
 * {
   font-family: 'Raleway', sans-serif;
 }
 
-@font-face {
-    font-family: tickerfont;
-    src: url('/vendor/fonts/SubwayTickerGrid.ttf');
+header, body, footer{
+  min-width: 400px;
+}
+
+li a {
+  color: white;
 }
 
 marquee {
@@ -12,7 +20,7 @@ marquee {
   padding-top: 6px;
   padding-bottom: 6px;
   background-color: black;
-  color: green;
+  color: #15d222;
 }
 
 marquee p {
@@ -35,11 +43,10 @@ h1 {
 
 a:link {
   text-decoration: none;
-  color: yellow;
 }
 
-a {
-  color: #ea6b64;
+li a {
+  color: black;
 }
 
 .tab-content {
@@ -58,38 +65,40 @@ a {
 
 .main-nav {
   display: block;
-  outline: black solid 1px;
-  background-color: #20063B;
+  height: 75px;
+  background-color: #9e0d97;
   color: white;
 }
 
 .main-nav img[alt="logo"]{
-  width: 70px;
+  height: 100%;
+  padding: 5px;
   vertical-align: middle;
 }
 
 .nav-buttons {
   display: inline-block;
-
+  float: right;
+  background-color: white;
+  color: black;
 }
 
 .hidden {
 display: none;
 }
 
-
 li.tab {
-  /*display: none;*/
-  margin-left: 30px;
+  margin: 3px;
+
 }
 
-.footer {
-  position: absolute;
+footer {
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #20063B;
+  background-color: #9e0d97;
   color: white;
   text-align: center;
 }
@@ -116,7 +125,16 @@ li.tab {
 
   .main-nav {
     outline: black solid 1px;
-    background-color: #20063B;
+    background-color: #9e0d97;
+    color: white;
+  }
+
+  .nav-buttons {
+    background: transparent;
+    float: none;
+  }
+
+  .nav-buttons a {
     color: white;
   }
 
