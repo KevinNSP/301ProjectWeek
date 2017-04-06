@@ -8,7 +8,6 @@
     let start = menuOne[0];
     let rate = end / start;
 
-    console.log($('#starting-number').val());
     let result = $('#starting-number').val() * rate;
 
     let finalOutput = $('#ending-number').html(result.toFixed(2));
