@@ -92,14 +92,15 @@ li.tab {
 
 }
 
-img {
+#about img {
   border-radius: 100%;
   width: 10%;
 }
 
 #about p {
   display: inline-block;
-  max-width: 70%;
+  max-width: 85%;
+  margin-left: 15px;
   padding-top: 5px;
   vertical-align: top;
 }
