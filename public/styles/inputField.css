@@ -57,3 +57,7 @@ fieldset {
   color: red;
   font-weight: bold;
 }
+
+#currencyOne {
+  width: 220px;
+}
