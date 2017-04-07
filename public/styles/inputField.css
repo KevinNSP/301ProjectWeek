@@ -24,6 +24,7 @@ fieldset {
 }
 
 #allOutputs p {
+  font-family: 'Roboto', sans-serif;
   display: inline;
 }
 
@@ -58,6 +59,19 @@ fieldset {
   font-weight: bold;
 }
 
+
+#first{
+  color: lightgrey;
+}
+
+#ending-number{
+  color: lightgrey;
+}
+
+#button {
+  margin-top: 2%;
+
 #currencyOne {
   width: 220px;
+
 }
