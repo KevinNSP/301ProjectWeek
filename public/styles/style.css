@@ -104,6 +104,10 @@ img {
   vertical-align: top;
 }
 
+strong {
+  font-size: 20px;
+}
+
 footer {
   position: fixed;
   right: 0;
