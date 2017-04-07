@@ -25,6 +25,7 @@ fieldset {
 }
 
 #allOutputs p {
+  font-family: 'Roboto', sans-serif;
   display: inline;
 }
 
@@ -53,6 +54,14 @@ fieldset {
   margin-top: 2%;
   color: red;
   font-weight: bold;
+}
+
+#first{
+  color: lightgrey;
+}
+
+#ending-number{
+  color: lightgrey;
 }
 
 #button {

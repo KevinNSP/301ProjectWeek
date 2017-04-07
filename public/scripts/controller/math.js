@@ -25,6 +25,7 @@ function reverseValues(){
   $('#allOutputs').find('*').show();
   $('#firstCurrency').html(currencyTwo[0]);
   $('#secondCurrency').html(currencyOne[0]);
+  $('#equals').html('     =     ');
 
   let result = $('#starting-number').val() * reverseRate;
   console.log(reverseRate);
@@ -38,7 +39,7 @@ function returnValues(){
   $('#iAmError').html('');
   calculator.calculate();
   let firstVal = $('#starting-number').val();
-  $('#firstCurrency').html(currencyOne[0], ' = ');
+  $('#firstCurrency').html(currencyOne[0]);
   $('#first').html(firstVal);
   $('#secondCurrency').html(currencyTwo[0]);
   $('#equals').html('     =     ');
