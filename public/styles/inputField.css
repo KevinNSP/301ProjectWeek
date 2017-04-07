@@ -20,7 +20,6 @@ fieldset {
   background-color: black;
   width: 50%;
   height: 50%;
-  margin-top: 2%;
   padding: 2%;
 }
 
@@ -33,10 +32,14 @@ fieldset {
   margin: auto;
 }
 
-#button {
-  margin-left: auto;
-  margin-right:auto;
+#buttons {
   display: block;
+}
+
+#buttons button {
+  display: inline-block;
+  width: 20%;
+  margin: 2%;
 }
 
 .selection{
@@ -53,8 +56,4 @@ fieldset {
   margin-top: 2%;
   color: red;
   font-weight: bold;
-}
-
-#button {
-  margin-top: 2%;
 }
